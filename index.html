@@ -17,7 +17,7 @@
             <button id="music-toggle" onclick="toggleMusic()">🎵 Play Music</button>
         </header>
 
-        <!-- Love Letter Section -->
+        <!-- Love Letter Section in Black Card -->
         <section class="letter-section">
             <div class="letter-card">
                 <h2>A Special Message</h2>
@@ -30,7 +30,7 @@
         <div id="surprise-modal" class="modal" style="display: none;">
             <div class="modal-content">
                 <span class="close-btn" onclick="closeSurprise()">&times;</span>
-                <h2> You Mean Everything To Me! 💕</h2>
+                <h2>You Mean Everything To Me! 💕</h2>
                 <p>No matter where we are, my heart belongs to you.</p>
             </div>
         </div>
@@ -49,7 +49,6 @@
     </div>
 
     <script>
-        // YOUR ORIGINAL MESSAGE WITH TYPEWRITER EFFECT
         const messageText = "My Beautiful Ghadii,\n\nSince you entered my life, you have become the owner of my heart. If my behavior changed recently, it was only because I wanted to see if our love had changed you—and I am so happy to see that you love me even more each day. You are my Queen, my peace, my smile, and my forever. No matter what happens, I choose you today, tomorrow, and forever!";
         
         let index = 0;
@@ -71,7 +70,6 @@
 
         startTypewriter();
 
-        // AUDIO TOGGLE
         function toggleMusic() {
             const music = document.getElementById('bg-music');
             const btn = document.getElementById('music-toggle');
@@ -90,7 +88,6 @@
             }
         }
 
-        // SURPRISE POPUP
         function openSurprise() {
             const modal = document.getElementById('surprise-modal');
             if (modal) {
