@@ -60,24 +60,27 @@ header h1 {
     border: 1px solid #ffe1e8;
     border-radius: 15px;
     padding: 20px;
-    min-height: 120px;
+    min-height: 140px;
+    text-align: left;
 }
 
 .letter-card h2 {
     color: #c2185b;
     margin-bottom: 12px;
+    text-align: center;
 }
 
-/* Typewriter Text Styling & Blinking Cursor */
+/* Typewriter Text Styling */
 #typewriter-text {
     line-height: 1.6;
     color: #444;
     font-size: 1.05rem;
     margin-bottom: 15px;
-    display: inline-block;
+    white-space: pre-line; /* Preserves paragraph spacing */
     border-right: 2px solid #e91e63;
     animation: blink 0.75s step-end infinite;
     padding-right: 4px;
+    display: inline-block;
 }
 
 @keyframes blink {
@@ -86,6 +89,8 @@ header h1 {
 }
 
 #open-letter-btn {
+    display: block;
+    margin: 15px auto 0 auto;
     background-color: #ff4081;
     color: white;
     border: none;
@@ -95,7 +100,6 @@ header h1 {
     font-weight: bold;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(255, 64, 129, 0.3);
-    margin-top: 10px;
 }
 
 #open-letter-btn:hover {
@@ -139,7 +143,7 @@ header h1 {
     color: #000;
 }
 
-/* Photo Gallery */
+/* Photo Gallery Grid */
 .gallery-section h2 {
     color: #e91e63;
     margin-bottom: 15px;
@@ -147,14 +151,14 @@ header h1 {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
 }
 
 .gallery-grid img {
     width: 100%;
-    height: 140px;
+    height: 180px;
     object-fit: cover;
-    border-radius: 12px;
+    border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
