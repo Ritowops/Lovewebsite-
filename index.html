@@ -3,133 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Letter For You ❤️</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Love Website</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Floating Background Elements -->
-    <div class="hearts">
-        <span>❤️</span>
-        <span>💕</span>
-        <span>💗</span>
-        <span>💖</span>
-        <span>❤️</span>
+    <div class="container">
+        <!-- Background Music -->
+        <audio id="bg-music" src="love-song.mp3" loop preload="auto"></audio>
+
+        <header>
+            <h1>For My Love ❤️</h1>
+            <button id="music-toggle" onclick="toggleMusic()">🎵 Play Music</button>
+        </header>
+
+        <!-- Love Letter Section -->
+        <section class="letter-section">
+            <div class="letter-card">
+                <h2>A Special Message</h2>
+                <p>
+                    Every moment with you is special. Thank you for filling my life with happiness, 
+                    warmth, and endless smiles. Here are a few of our favorite memories together!
+                </p>
+                <button id="open-letter-btn" onclick="openSurprise()">Click for a Surprise ✨</button>
+            </div>
+        </section>
+
+        <!-- Hidden Surprise Message -->
+        <div id="surprise-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeSurprise()">&times;</span>
+                <h2>You Mean Everything To Me! 💕</h2>
+                <p>No matter where we are, my heart belongs to you.</p>
+            </div>
+        </div>
+
+        <!-- Photo Gallery Section -->
+        <section class="gallery-section">
+            <h2>Our Memories</h2>
+            <div class="gallery-grid">
+                <img src="photo1.jpg" alt="Memory 1" loading="lazy">
+                <img src="photo2.jpg" alt="Memory 2" loading="lazy">
+                <img src="photo3.jpg" alt="Memory 3" loading="lazy">
+                <img src="photo4.jpg" alt="Memory 4" loading="lazy">
+                <img src="photo5.jpg" alt="Memory 5" loading="lazy">
+            </div>
+        </section>
     </div>
 
-    <main class="container">
-        <div class="envelope">💌</div>
-
-        <h1>For You, My Special Person ❤️</h1>
-
-        <p class="subtitle">
-            I made something special just for you...
-        </p>
-
-        <!-- Open Button -->
-        <button id="openBtn" onclick="openLetter()">
-            💌 Open My Letter
-        </button>
-
-        <!-- Hidden Letter Container -->
-        <div id="letter" class="letter" style="display: none;">
-            
-            <!-- Main Photo Inside Letter -->
-            <div class="image-wrapper">
-                <img src="images/photo1.jpg" alt="Our Special Memory" class="letter-image">
-            </div>
-
-            <!-- Typewriter Text Output -->
-            <div id="typewriter"></div>
-
-            <!-- Photo Gallery Section -->
-            <section class="memories">
-                <h2>Our Memories 📸</h2>
-                <p class="memory-text">A few moments I will cherish forever...</p>
-
-                <div class="photo-grid">
-                    <div class="photo-card">
-                        <img src="images/photo1.jpg" alt="Memory 1">
-                    </div>
-                    <div class="photo-card">
-                        <img src="images/photo2.jpg" alt="Memory 2">
-                    </div>
-                    <div class="photo-card">
-                        <img src="images/photo3.jpg" alt="Memory 3">
-                    </div>
-                    <div class="photo-card">
-                        <img src="images/photo4.jpg" alt="Memory 4">
-                    </div>
-                    <div class="photo-card">
-                        <img src="images/photo5.jpg" alt="Memory 5">
-                    </div>
-                </div>
-            </section>
-
-            <!-- FINAL SURPRISE SECTION -->
-            <section class="final-surprise">
-                <h2>One Last Thing... 💌</h2>
-
-                <div class="big-heart">
-                    <div class="heart-content">
-                        <div class="small-love">To My Forever</div>
-                        <h3>You Are Special ❤️</h3>
-                        <p>No matter how many pages this little website has, some feelings will always be bigger than words.</p>
-                        <div class="love-line">I Love You</div>
-                        <div class="forever">💗</div>
-                    </div>
-                </div>
-
-                <p class="final-signature">
-                    Thank you for being a beautiful part of my story. 💕
-                </p>
-
-                <!-- SURPRISE BUTTON -->
-                <button onclick="openSurprise()" class="surprise-btn">
-                    💖 One More Surprise
-                </button>
-
-                <!-- HIDDEN SURPRISE MESSAGE -->
-                <div id="surpriseMessage" class="surprise-message" style="display: none;">
-                    <div class="heart-burst">
-                        ❤️ 💕 ❤️ 💖 ❤️
-                    </div>
-                    <h3>Forever & Always ❤️</h3>
-                    <p>
-                        If I could give you one thing in life, it would be the ability to see yourself through my eyes. Then you would understand just how precious you are to me.
-                    </p>
-                    <div class="forever-heart">💗</div>
-                </div>
-
-                <!-- FLOATING HEARTS DECORATION -->
-                <div class="floating-hearts">
-                    <span>❤️</span>
-                    <span>💕</span>
-                    <span>💗</span>
-                    <span>💖</span>
-                    <span>❤️</span>
-                    <span>💕</span>
-                    <span>💗</span>
-                </div>
-            </section>
-        </div>
-
-        <!-- Music Controls -->
-        <div class="music">
-            <audio id="bgMusic" loop>
-                <source src="music/love-song.mp3" type="audio/mpeg">
-            </audio>
-
-            <button id="musicBtn" onclick="toggleMusic()" class="music-btn">
-                🎵 Play Music
-            </button>
-        </div>
-    </main>
-
-    <!-- Connect JavaScript -->
     <script src="script.js"></script>
+    <script>
+        function toggleMusic() {
+            const music = document.getElementById('bg-music');
+            const btn = document.getElementById('music-toggle');
+            if (music.paused) {
+                music.play().then(() => {
+                    btn.textContent = '⏸️ Pause Music';
+                }).catch(err => console.log('Audio playback prevented:', err));
+            } else {
+                music.pause();
+                btn.textContent = '🎵 Play Music';
+            }
+        }
+
+        function openSurprise() {
+            document.getElementById('surprise-modal').classList.remove('hidden');
+            // Play audio if not playing when surprise button is clicked
+            const music = document.getElementById('bg-music');
+            if (music.paused) {
+                toggleMusic();
+            }
+        }
+
+        function closeSurprise() {
+            document.getElementById('surprise-modal').classList.add('hidden');
+        }
+    </script>
 </body>
 </html>
