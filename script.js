@@ -1,4 +1,21 @@
-// Function to toggle play/pause for background music
+// Typewriter Message Configuration
+const messageText = "Every moment with you is special. Thank you for filling my life with happiness, warmth, and endless smiles. Here are a few of our favorite memories together!";
+let index = 0;
+const speed = 50; // Typing speed in milliseconds
+
+function typeWriter() {
+    const textContainer = document.getElementById("typewriter-text");
+    if (textContainer && index < messageText.length) {
+        textContainer.innerHTML += messageText.charAt(index);
+        index++;
+        setTimeout(typeWriter, speed);
+    }
+}
+
+// Start typewriter effect when page loads
+window.addEventListener("DOMContentLoaded", typeWriter);
+
+// Audio Toggle Function
 function toggleMusic() {
     const music = document.getElementById('bg-music');
     const btn = document.getElementById('music-toggle');
@@ -9,7 +26,7 @@ function toggleMusic() {
         music.play().then(() => {
             if (btn) btn.textContent = '⏸️ Pause Music';
         }).catch(err => {
-            console.log('Audio playback prevented by browser:', err);
+            console.log('Audio playback prevented:', err);
         });
     } else {
         music.pause();
@@ -17,29 +34,26 @@ function toggleMusic() {
     }
 }
 
-// Function to open the surprise modal and auto-play music on user interaction
+// Modal Control Functions
 function openSurprise() {
     const modal = document.getElementById('surprise-modal');
     if (modal) {
-        modal.classList.remove('hidden');
+        modal.style.display = 'flex';
     }
 
-    // Trigger audio on button click to satisfy mobile browser autoplay policies
     const music = document.getElementById('bg-music');
     if (music && music.paused) {
         toggleMusic();
     }
 }
 
-// Function to close the surprise modal
 function closeSurprise() {
     const modal = document.getElementById('surprise-modal');
     if (modal) {
-        modal.classList.add('hidden');
+        modal.style.display = 'none';
     }
 }
 
-// Close modal when clicking anywhere outside of the modal content card
 window.addEventListener('click', function(event) {
     const modal = document.getElementById('surprise-modal');
     if (event.target === modal) {
